@@ -6,7 +6,8 @@ USE SCHEMA doc_ai_schema;
 LS @doc_ai_stage;
 
 ALTER WAREHOUSE doc_ai_qs_wh
-SET WAREHOUSE_SIZE = MEDIUM;
+SET WAREHOUSE_SIZE = XSAMLL
+    WAIT_FOR_COMPLETION = TRUE;
 
 -- Create a table with all values and scores
 CREATE OR REPLACE TABLE doc_ai_qs_db.doc_ai_schema.CO_BRANDING_AGREEMENTS
@@ -46,8 +47,7 @@ file_name
 , json:indemnification_clause[0]:value::STRING AS have_indemnification_clause_value
 , json:renewal_options[0]:score::FLOAT AS have_renewal_options_score
 , json:renewal_options[0]:value::STRING AS have_renewal_options_value
-FROM temp;
-```  
-4. Check that there is a result by running the following SQL  
-```SQL
+FROM temp;  
+
+-- Check that there is a result by running the following SQL  
 select * from doc_ai_qs_db.doc_ai_schema.CO_BRANDING_AGREEMENTS;
