@@ -6,7 +6,7 @@ USE SCHEMA doc_ai_schema;
 LS @doc_ai_stage;
 
 ALTER WAREHOUSE doc_ai_qs_wh
-SET WAREHOUSE_SIZE = XSAMLL
+SET WAREHOUSE_SIZE = XSMALL
     WAIT_FOR_COMPLETION = TRUE;
 
 -- Create a table with all values and scores
