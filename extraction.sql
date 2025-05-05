@@ -5,10 +5,6 @@ USE SCHEMA doc_ai_schema;
 
 LS @doc_ai_stage;
 
-ALTER WAREHOUSE doc_ai_qs_wh
-SET WAREHOUSE_SIZE = XSMALL
-    WAIT_FOR_COMPLETION = TRUE;
-
 -- Create a table with all values and scores
 CREATE OR REPLACE TABLE doc_ai_qs_db.doc_ai_schema.CO_BRANDING_AGREEMENTS
 AS
